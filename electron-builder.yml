@@ -1,0 +1,26 @@
+appId: io.github.alex4524.gamelauncherdemo
+productName: Game Launcher Demo
+directories:
+  output: release
+files:
+  - dist/main.cjs
+  - dist/preload.cjs
+  - dist/renderer/**
+  - resources/**
+  - package.json
+asar: true
+mac:
+  category: public.app-category.games
+  target:
+    - target: dmg
+      arch: [arm64]
+    - target: zip
+      arch: [arm64]
+  # No Apple Developer certificate: ad-hoc signature only. First launch needs
+  # "Open Anyway" in System Settings -> Privacy & Security.
+  identity: "-"
+  hardenedRuntime: false
+  gatekeeperAssess: false
+publish:
+  provider: generic
+  url: http://127.0.0.1:7300/updates
